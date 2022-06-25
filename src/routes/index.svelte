@@ -1,25 +1,12 @@
 <script>
-	const THEME_ATTRIBUTE = "data-theme"
-	const THEMES = [ "default", "light", "dark" ]
-
-	const toggleTheme = () => {
-		let html = document.getElementsByTagName("html")[ 0 ]
-		let currentTheme = html.getAttribute(THEME_ATTRIBUTE)
-		let themeIndex = THEMES.findIndex(theme => theme === currentTheme)
-		let newTheme
-		if (themeIndex < 0) {
-			newTheme = THEMES[ 0 ]
-		} else {
-			newTheme = THEMES[ (themeIndex + 1) % THEMES.length ]
-		}
-		html.setAttribute(THEME_ATTRIBUTE, newTheme)
-	}
+	import HomeNavbar from "../components/HomeNavbar.svelte";
+	import FrequentVisits from "../components/FrequentVisits.svelte";
 </script>
 
-<div class="flex justify-end p-4">
-    <div>
-        <button on:click={toggleTheme} class="text-primary">
-            <i class="ph-palette ph-xl"></i>
-        </button>
+<HomeNavbar/>
+
+<div class="flex justify-center items-center h-full">
+    <div class="w-1/2">
+        <FrequentVisits/>
     </div>
 </div>
